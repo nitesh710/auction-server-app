@@ -5,7 +5,13 @@ const userInfoSchema = new Schema({
   userName: {
     type: String
   },
-  password: {
+  hashPassword: {
+    type: String
+  },
+  city: {
+    type: String
+  },
+  state: {
     type: String
   }
 })
