@@ -33,7 +33,7 @@ router.post("/login", async (req, res) => {
         let {userName, password} = req.body;
         let response = await UserService.login(userName, password);
         if(response && response.status == "Success") {
-            res.status(response.statusCode).send({status: response.status, message: response.message});
+            res.status(response.statusCode).send({status: response.status, message: response.message, data: response.data});
         } else {
             res.status(response.statusCode).send({status: response.status, message: response.message});
         }

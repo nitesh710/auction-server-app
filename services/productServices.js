@@ -35,6 +35,8 @@ exports.getProduct = async (productName) => {
 
 exports.addProduct = async (productData) => {
   try {
+    let randomNumber = Math.ceil(Math.random() * 99999999);
+    productData = {...productData, dealId: randomNumber};
     let result = await ProductDao.addProduct(productData);
     if (result && result.status == "Failed") {
       return {

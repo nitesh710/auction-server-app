@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Joi = require("joi");
 const ProductService = require("../services/productServices");
+const jwtToken = require('../auth/jwtAuth');
 
-router.post("/products", async (req, res) => {
+router.post("/products", jwtToken, async (req, res) => {
   try {
     const schema = Joi.object({
       name: Joi.string().alphanum().min(3).max(30).required(),
@@ -47,7 +48,7 @@ router.post("/products", async (req, res) => {
   }
 });
 
-router.get("/products", async (req, res) => {
+router.get("/products", jwtToken, async (req, res) => {
   try {
     let response = await ProductService.getAllProducts();
     if (response && response.status == "Failed") {

@@ -19,6 +19,13 @@ const productSchema = new Schema({
   imageUrl: {
     type: String,
   },
+  dealId: {
+    type: Number
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'UserModel'
+  }
 });
 
 const ProductModel = mongoose.model("products", productSchema);
