@@ -1,4 +1,4 @@
-const User = require("../schema/userInfo");
+const User = require("../schema/users");
 
 exports.addUser = async (userObject) => {
     try {
